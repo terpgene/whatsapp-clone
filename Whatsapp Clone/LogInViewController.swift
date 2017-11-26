@@ -28,7 +28,7 @@ class LogInViewController: UIViewController {
 
         
         //TODO: Log in the user
-        
+        performSegue(withIdentifier: "goToLogin", sender: self)
         
     }
     
