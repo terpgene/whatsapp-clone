@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     
     
@@ -32,12 +32,14 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         messageTableView.dataSource = self
         
         
+        
         //TODO: Set yourself as the delegate of the text field here:
-
+        messageTextfield.delegate = self
         
         
         //TODO: Set the tapGesture here:
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+         messageTableView.addGestureRecognizer(tapGesture)
         
 
         //TODO: Register your MessageCell.xib file here:
@@ -78,6 +80,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     //TODO: Declare tableViewTapped here:
+    func tableViewTapped(){
+        messageTextfield.endEditing(true)
+    }
     
     
     
@@ -96,12 +101,26 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     
     //TODO: Declare textFieldDidBeginEditing here:
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        
+        UIView.animate(withDuration: 0.5) {
+            self.heightConstraint.constant = 308
+            self.view.layoutIfNeeded()
+        }
+    }
     
     
     
     //TODO: Declare textFieldDidEndEditing here:
-    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.heightConstraint.constant = 50
+            self.view.layoutIfNeeded()
+        }
+        
+    }
 
     
     ///////////////////////////////////////////
