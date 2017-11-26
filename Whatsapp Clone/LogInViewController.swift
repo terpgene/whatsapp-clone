@@ -23,14 +23,11 @@ class LogInViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-   
-    @IBAction func logInPressed(_ sender: AnyObject) {
-
-        
-        //TODO: Log in the user
-        performSegue(withIdentifier: "goToLogin", sender: self)
+    
+    @IBAction func logInPressed (_ sender: Any?) {
         
     }
+    
     
 
 
