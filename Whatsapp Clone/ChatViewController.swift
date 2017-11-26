@@ -14,7 +14,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     // Declare instance variables here
-
+    var messageArray : [Message] = [Message]()
     
     // We've pre-linked the IBOutlets
     @IBOutlet var heightConstraint: NSLayoutConstraint!
@@ -80,7 +80,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     //TODO: Declare tableViewTapped here:
-    func tableViewTapped(){
+    @objc func tableViewTapped(){
         messageTextfield.endEditing(true)
     }
     
